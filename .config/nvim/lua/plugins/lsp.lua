@@ -21,7 +21,7 @@ return {
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "clangd"}, -- Add your LSP servers here
+				ensure_installed = { "lua_ls", "clangd" }, -- Add your LSP servers here
 				automatic_installation = true,
 			})
 		end,
@@ -77,27 +77,47 @@ return {
 			})
 
 			-- Clangd setup
-            lspconfig.clangd.setup({
-                on_attach = on_attach,
-                capabilities = lsp_capabilities,
-            })
+			lspconfig.clangd.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
+			-- Dart setup
+			lspconfig.dartls.setup({
+				cmd = { "dart", "language-server", "--protocol=lsp" },
+				filetypes = { "dart" },
+				root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
+				init_options = {
+					closingLabels = true,
+					flutterOutline = true,
+					onlyAnalyzeProjectsWithOpenFiles = true,
+					outline = true,
+					suggestFromUnimportedLibraries = true,
+					settings = {
+						dart = {
+							completeFunctionCalls = true,
+							showTodos = true,
+						},
+					},
+				},
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
 
 			-- astro setup
 			lspconfig.astro.setup({
 				on_attach = on_attach,
-				capabilities = lsp_capabilities
+				capabilities = lsp_capabilities,
 			})
-
 
 			lspconfig.cssls.setup({
 				on_attach = on_attach,
-				capabilities = lsp_capabilities
+				capabilities = lsp_capabilities,
 			})
-
 
 			lspconfig.tailwindcss.setup({
 				on_attach = on_attach,
-				capabilities = lsp_capabilities
+				capabilities = lsp_capabilities,
 			})
 
 			lspconfig.astro.setup({
@@ -116,7 +136,6 @@ return {
 					},
 				},
 			})
-
 		end,
 	},
 	{
@@ -150,7 +169,7 @@ return {
 				}),
 			})
 
-			cmp.setup.cmdline({"/", "?"}, {
+			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
 					{ name = "buffer" },
