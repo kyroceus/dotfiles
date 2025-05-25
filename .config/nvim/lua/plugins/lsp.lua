@@ -136,6 +136,21 @@ return {
 					},
 				},
 			})
+
+			lspconfig.jdtls.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
+			lspconfig.dockerls.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
+			lspconfig.docker_compose_language_service.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
 		end,
 	},
 	{

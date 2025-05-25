@@ -1,0 +1,6 @@
+[Unit]
+Description=Battery check and notification
+
+[Service]
+Type=oneshot
+ExecStart=%h/battery-check.sh

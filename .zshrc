@@ -111,3 +111,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Turso
 export PATH="$PATH:/home/kyroceus/.turso"
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
