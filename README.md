@@ -8,13 +8,27 @@ This repo is structured with [GNU Stow](https://www.gnu.org/software/stow/) in m
 
 ```bash
 dotfiles/
-├── zsh/
-│   └── .zshrc
-├── nvim/
-│   └── .config/nvim/...
-├── i3/
-│   └── .config/i3/...
-└── ...
+├── i3
+│   └── .config
+│       ├── i3
+│       └── i3status.conf
+├── kitty
+│   └── .config
+│       └── kitty
+├── nvim
+│   └── .config
+│       └── nvim
+├── systemd
+│   ├── battery_notifier.sh
+│   └── .config
+│       └── systemd
+├── tmux
+│   └── .tmux.conf
+├── x
+│   ├── .xinitrc
+│   └── .Xresources
+└── zsh
+    └── .zshrc
 ```
 
 ## 🚀 Quick Start
