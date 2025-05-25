@@ -12,8 +12,8 @@ dotfiles/
 │   └── .zshrc
 ├── nvim/
 │   └── .config/nvim/...
-├── git/
-│   └── .gitconfig
+├── i3/
+│   └── .config/i3/...
 └── ...
 ```
 
@@ -51,8 +51,16 @@ Pick and choose which configs to use:
 ```bash
 stow zsh
 stow nvim
-stow git
+stow kitty
 stow tmux
+stow x
+stow i3
+```
+
+or could use whole config
+
+```bash
+stow */
 ```
 
 This will symlink the contents into your `$HOME` directory.
@@ -60,12 +68,12 @@ This will symlink the contents into your `$HOME` directory.
 To unstow (remove symlinks):
 
 ```bash
-stow -D zsh
+stow -D */
 ```
 
 ## 🧠 systemd User Services (Optional)
 
-The dotfiles have user-level systemd service for notifying battery status.
+The dotfiles contains user-level systemd service for notifying battery status.
 
 ### Enable lingering for your user (if you want battery notify service to run before login):
 
@@ -107,10 +115,6 @@ If you'd like to contribute or fork for your own setup, follow this convention:
 - [Zsh](https://www.zsh.org/)
 - [Neovim](https://neovim.io/)
 - [Tmux](https://github.com/tmux/tmux)
-- [Starship](https://starship.rs/)
-- [fzf](https://github.com/junegunn/fzf)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [bat](https://github.com/sharkdp/bat)
 
 ## 🤝 Contributions
 
