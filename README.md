@@ -109,6 +109,12 @@ systemctl --user daemon-reload
 systemctl --user enable --now battery-check.timer
 ```
 
+To check all timers you can use
+
+```bash
+systemctl --user list-timers
+```
+
 ## 🔁 Updating your dotfiles
 
 Since everything is symlinked, just edit the files in `~/dotfiles` and commit your changes. Updates will reflect immediately.

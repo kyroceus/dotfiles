@@ -18,5 +18,8 @@ if [[ -n "$is_discharging" ]]; then
 		notify-send -u critical "Low Battery" "Battery is at ${battery_level}%. Plug in your charger!"
 		paplay /usr/share/sounds/custom/error.mp3
 	fi
+elif [[ "$battery_level" -eq 100 ]]; then
+		notify-send -u normal -i battery-full "Battery full" "Battery is at ${battery_level}%. Please unplug the charger!"
+		paplay /usr/share/sounds/freedesktop/stereo/complete.oga
 fi
 
