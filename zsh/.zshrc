@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 alias gaf='git status --porcelain | awk "{print \$2}" | fzf -m | xargs git add'
 alias grf='git status --porcelain | awk "{print \$2}" | fzf -m | xargs git restore --staged'
+alias fd='fdfind'
+alias lg='lazygit'
 
 export PATH=~/.local/bin:$PATH
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -122,5 +124,5 @@ export ANDROID_HOME=$HOME/Android/Sdk
 # Android platform tools
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
 export FZF_DEFAULT_OPTS="--multi --bind ctrl-space:toggle,ctrl-y:accept,tab:ignore"
+source <(fzf --zsh)

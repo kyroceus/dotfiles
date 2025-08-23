@@ -142,6 +142,13 @@ return {
 				capabilities = lsp_capabilities,
 			})
 
+			lspconfig.apex_ls.setup({
+				filetypes = { "apex" },
+				root_dir = lspconfig.util.root_pattern("sfdx-project.json", ".git"),
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
 			lspconfig.dockerls.setup({
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,

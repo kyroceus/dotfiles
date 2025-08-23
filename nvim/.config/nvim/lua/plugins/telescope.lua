@@ -11,8 +11,11 @@ return {
 						"node_modules",
 						".git",
 						"dist",
-						".next", -- Next.js output
-						"%.lock", -- lock files (package-lock.json, yarn.lock, etc.)
+						".next",
+						"%.lock",
+						".sf",
+						".sfdx",
+						".vscode",
 					},
 				},
 			})
