@@ -1,0 +1,104 @@
+@define-color color1 #553285;
+@define-color color2 #660F56;
+@define-color color3 #2c1823;
+@define-color bg    #131313;
+@define-color fg    #eeeeee;
+
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: @bg;
+  color: @fg;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    color: @fg;
+    background: @color3;
+	border-radius: 0;
+	border-left: 1px solid @color3;
+	border-right: 1px solid @color3;
+}
+
+#workspaces button:last-child {
+	border-right: 2px solid @color3;
+}
+#workspaces button:first-child {
+	border-left: 2px solid @color3;
+}
+
+#workspaces button.active {
+    color: @fg;
+	background: @color1;
+}
+#workspaces button.empty {
+    color: @fg;
+	background: transparent;
+}
+#workspaces button.empty.active {
+    color: @fg;
+	background: @color1;
+}
+#workspaces button.urgent {
+  background-color: #445544;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+  padding: 0 6px;
+  color: @fg;
+}
+
+#window {
+  margin: 0;
+  padding-left: 8px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #26a65b;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#network.disconnected {
+  background-color: #f53c3c;
+}
+
+#pulseaudio.muted {
+  background-color: #90b1b1;
+  color: #2a5c45;
+}
