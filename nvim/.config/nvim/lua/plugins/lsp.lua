@@ -27,6 +27,40 @@ return {
 		end,
 	},
 	{
+		"williamboman/mason-null-ls.nvim",
+		dependencies = { "williamboman/mason.nvim" },
+		config = function()
+			require("mason-null-ls").setup({
+				ensure_installed = { "eslint_d", "prettier", "flake8", "black", "stylua" },
+				automatic_installation = true,
+			})
+		end,
+	},
+	{
+		"nvimtools/none-ls-extras.nvim",
+	},
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = { "williamboman/mason-null-ls.nvim", "nvimtools/none-ls-extras.nvim" },
+		config = function()
+			local null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					-- JS/TS
+					null_ls.builtins.formatting.prettier,
+					require("none-ls.diagnostics.eslint"),
+
+					-- Python
+					-- null_ls.builtins.diagnostics.flake8,
+					-- null_ls.builtins.formatting.black,
+
+					-- Lua
+					-- null_ls.builtins.formatting.stylua,
+				},
+			})
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = { "williamboman/mason-lspconfig.nvim" },
 		config = function()
@@ -104,18 +138,17 @@ return {
 				capabilities = lsp_capabilities,
 			})
 
-			-- astro setup
-			lspconfig.astro.setup({
-				on_attach = on_attach,
-				capabilities = lsp_capabilities,
-			})
-
 			lspconfig.cssls.setup({
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 			})
 
 			lspconfig.tailwindcss.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
+			lspconfig.ts_ls.setup({
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 			})
@@ -150,6 +183,16 @@ return {
 			})
 
 			lspconfig.dockerls.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
+			lspconfig.markdown_oxide.setup({
+				on_attach = on_attach,
+				capabilities = lsp_capabilities,
+			})
+
+			lspconfig.shopify_theme_ls.setup({
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 			})
