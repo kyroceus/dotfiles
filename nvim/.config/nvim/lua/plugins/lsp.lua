@@ -21,7 +21,7 @@ return {
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "clangd" }, -- Add your LSP servers here
+				ensure_installed = { "lua_ls", "clangd", "jdtls" }, -- Add your LSP servers here
 				automatic_installation = true,
 			})
 		end,
@@ -161,7 +161,7 @@ return {
 						tsdk = vim.fn.expand("~/.nvm/versions/node/v22.12.0/lib/node_modules/typescript/lib"),
 					},
 				},
-				filetypes = { "astro", "javascript", "typescript", "css", "html" },
+				filetypes = { "astro" },
 				root_dir = lspconfig.util.root_pattern("astro.config.*", ".git"),
 				settings = {
 					astro = {
@@ -171,16 +171,17 @@ return {
 			})
 
 			lspconfig.jdtls.setup({
+				cmd = { "jdtls" },
 				on_attach = on_attach,
 				capabilities = lsp_capabilities,
 			})
 
-			lspconfig.apex_ls.setup({
-				filetypes = { "apex" },
-				root_dir = lspconfig.util.root_pattern("sfdx-project.json", ".git"),
-				on_attach = on_attach,
-				capabilities = lsp_capabilities,
-			})
+			-- lspconfig.apex_ls.setup({
+			-- 	filetypes = { "apex" },
+			-- 	root_dir = lspconfig.util.root_pattern("sfdx-project.json", ".git"),
+			-- 	on_attach = on_attach,
+			-- 	capabilities = lsp_capabilities,
+			-- })
 
 			lspconfig.dockerls.setup({
 				on_attach = on_attach,

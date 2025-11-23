@@ -107,6 +107,7 @@ alias fd='fdfind'
 alias lg='lazygit'
 
 export PATH=~/.local/bin:$PATH
+export PATH=~/.local/scripts:$PATH
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.nvm"
@@ -119,6 +120,12 @@ export PATH="$PATH:/home/kyroceus/.turso"
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
+
+# ruby
+export PATH="$PATH:/home/kyroceus/.local/share/gem/ruby/gems/jekyll-4.4.1/exe"
+
+# custom scripts
+export PATH="$PATH:/home/kyroceus/scripts"
 
 export ANDROID_HOME=$HOME/Android/Sdk
 # Android platform tools

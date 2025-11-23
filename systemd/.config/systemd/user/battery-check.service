@@ -3,4 +3,7 @@ Description=Battery check and notification
 
 [Service]
 Type=oneshot
-ExecStart=%h/battery-check.sh
+ExecStart=%h/scripts/battery-check.sh
+
+[Install]
+WantedBy=default.target

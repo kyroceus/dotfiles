@@ -1,5 +1,6 @@
 @define-color color1 #553285;
 @define-color color2 #660F56;
+@define-color color2_darker shade(@color2, 0.8);
 @define-color color3 #2c1823;
 @define-color bg    #131313;
 @define-color fg    #eeeeee;
@@ -10,14 +11,14 @@
 }
 
 window#waybar {
-  background-color: @bg;
+  background-color: rgba(30, 30, 30, 0.8);
   color: @fg;
 }
 
 #workspaces button {
   padding: 0 2px;
   color: @fg;
-  background: @color3;
+  background: @color2_darker;
   border-radius: 0;
   border-left: 1px solid @color3;
   border-right: 1px solid @color3;
@@ -87,15 +88,15 @@ window#waybar {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
   color: #f53c3c;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  /* animation-name: blink; */
+  /* animation-duration: 0.5s; */
+  /* animation-timing-function: steps(12); */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  color: #f53c3c;
 }
 
 #pulseaudio.muted {
