@@ -1,3 +1,5 @@
+@import "/home/kyroceus/.config/colors/palette.css";
+
 * {
   font-family: "FiraCode Nerd Font";
   font-size: 13px;
@@ -6,34 +8,38 @@
 
 window {
   margin: 0px;
-  border: 2px solid #414868;
+  border: 1.5px solid @accent3;
   border-radius: 5px;
-  background-color: #24283b;
+  background-color: @base01;
   font-family: monospace;
   font-size: 12px;
 }
 
 #input {
   margin: 5px;
-  border: 1px solid #24283b;
-  color: #c0caf5;
-  background-color: #24283b;
+  border: 1px solid @base01;
+  caret-color: @accent;
+  outline: none;
+  box-shadow: none;
+  border-color: @accent3;
+  color: @fg;
+  background-color: @base01;
 }
 
 #input image {
-  color: #c0caf5;
+  color: @fg;
 }
 
 #inner-box {
   margin: 5px;
   border: none;
-  background-color: #24283b;
+  background-color: @base01;
 }
 
 #outer-box {
   margin: 5px;
   border: none;
-  background-color: #24283b;
+  background-color: @base01;
 }
 
 #scroll {
@@ -44,15 +50,16 @@ window {
 #text {
   margin: 5px;
   border: none;
-  color: #c0caf5;
+  color: @fg;
 }
 
 #entry:selected {
-  background-color: #414868;
+  background-color: @accent3;
   font-weight: normal;
 }
 
 #text:selected {
-  background-color: #414868;
+  color: @base00;
+  background-color: @accent3;
   font-weight: normal;
 }

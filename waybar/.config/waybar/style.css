@@ -1,17 +1,20 @@
-@define-color color1 #553285;
-@define-color color2 #660F56;
-@define-color color2_darker shade(@color2, 0.8);
-@define-color color3 #2c1823;
-@define-color bg    #131313;
-@define-color fg    #eeeeee;
+@import "/home/kyroceus/.config/colors/palette.css";
+
+/* Remap old variables to palette */
+@define-color color1        @accent;
+@define-color color2        @accent2;
+@define-color color2_darker shade(@accent2, 0.8);
+@define-color color3        @base02;
+@define-color bg            @base00;
+@define-color fg            @fg;
 
 * {
-  font-family: "FiraCode Nerd Font";
+  font-family: "FiraCode Nerd Font Mono Ret";
   font-size: 13px;
 }
 
 window#waybar {
-  background-color: rgba(30, 30, 30, 0.8);
+  background-color: alpha(@base02, 0.9);
   color: @fg;
 }
 
@@ -32,19 +35,22 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: @fg;
+  color: @bg;
   background: @color1;
 }
+
 #workspaces button.empty {
   color: @fg;
   background: transparent;
 }
+
 #workspaces button.empty.active {
   color: @fg;
   background: @color1;
 }
+
 #workspaces button.urgent {
-  background-color: #445544;
+  background-color: @red;
 }
 
 #clock,
@@ -75,31 +81,25 @@ window#waybar {
 
 #battery.charging,
 #battery.plugged {
-  color: #26a65b;
+  color: @green;
 }
 
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: @fg;
+    color: @base00;
   }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-  color: #f53c3c;
-  /* animation-name: blink; */
-  /* animation-duration: 0.5s; */
-  /* animation-timing-function: steps(12); */
-  /* animation-iteration-count: infinite; */
-  /* animation-direction: alternate; */
+  color: @red;
 }
 
 #network.disconnected {
-  color: #f53c3c;
+  color: @red;
 }
 
 #pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+  background-color: @base03;
+  color: @base01;
 }

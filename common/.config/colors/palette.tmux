@@ -1,0 +1,10 @@
+base00=#020503
+base01=#0b1a11
+base02=#1a3b2a
+base03=#4a7a62
+accent=#26d480
+accent2=#00bd9d
+accent3=#99f7ca
+red=#ff5f6e
+green=#52ff6e
+yellow=#dbe069

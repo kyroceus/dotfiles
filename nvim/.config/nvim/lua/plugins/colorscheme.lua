@@ -1,12 +1,10 @@
 return {
 	{
-		'catppuccin/nvim',
-		name = 'catppuccin',
+		"sainnhe/everforest",
 		config = function()
-			require('catppuccin').setup {
-				transparent_background = true
-			}
-			vim.cmd.colorscheme 'catppuccin'
-		end
-	}
+			vim.g.everforest_transparent_background = 1
+			vim.cmd.colorscheme("everforest")
+			vim.api.nvim_set_hl(0, "CursorLine", { bg = "#232a25" })
+		end,
+	},
 }
