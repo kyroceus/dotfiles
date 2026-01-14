@@ -1,0 +1,5 @@
+#!/bin/zsh
+# Source your shell environment to get the correct PATH
+source ~/.zshrc
+# Execute the language server
+exec dart language-server --protocol=lsp

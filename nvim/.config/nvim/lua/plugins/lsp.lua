@@ -67,6 +67,10 @@ return {
 			local lspconfig = require("lspconfig")
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			local home_dir = vim.env.HOME
+
+			local dart_executable_path = home_dir .. "/.local/bin/nvim-dartls"
+
 			local on_attach = function(_, bufnr)
 				local bufmap = function(mode, lhs, rhs, desc)
 					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
@@ -118,7 +122,7 @@ return {
 
 			-- Dart setup
 			lspconfig.dartls.setup({
-				cmd = { "dart", "language-server", "--protocol=lsp" },
+				cmd = { dart_executable_path },
 				filetypes = { "dart" },
 				root_dir = lspconfig.util.root_pattern("pubspec.yaml"),
 				init_options = {
