@@ -105,14 +105,12 @@ alias gaf='git status --porcelain | awk "{print \$2}" | fzf -m | xargs git add'
 alias grf='git status --porcelain | awk "{print \$2}" | fzf -m | xargs git restore --staged'
 alias fd='fdfind'
 alias lg='lazygit'
+alias flutter='fvm flutter'
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/.local/scripts:$PATH
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Turso
 export PATH="$PATH:/home/kyroceus/.turso"
@@ -120,6 +118,10 @@ export PATH="$PATH:/home/kyroceus/.turso"
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
+
+# FVM
+export FVM_CACHE_PATH="$HOME/fvm"
+export PATH="$FVM_CACHE_PATH/default/bin:$PATH"
 
 # ruby
 export PATH="$PATH:/home/kyroceus/.local/share/gem/ruby/gems/jekyll-4.4.1/exe"
@@ -133,3 +135,23 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 # Set up fzf key bindings and fuzzy completion
 export FZF_DEFAULT_OPTS="--multi --bind ctrl-space:toggle,ctrl-y:accept,tab:ignore"
 source <(fzf --zsh)
+source /usr/share/nvm/init-nvm.sh
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/kyroceus/.dart-cli-completion/zsh-config.zsh ]] && . /home/kyroceus/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+# pnpm
+export PNPM_HOME="/home/kyroceus/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# salesforce start
+export SF_CONFIG_DIR=~/.sf
+export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+# salesforce end
