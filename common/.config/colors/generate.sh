@@ -37,16 +37,18 @@ EOF
 
 # tmux
 cat > "$DEST/palette.tmux" <<EOF
-base00=$BASE00
-base01=$BASE01
-base02=$BASE02
-base03=$BASE03
-accent=$ACCENT
-accent2=$ACCENT2
-accent3=$ACCENT3
-red=$RED
-green=$GREEN
-yellow=$YELLOW
+set -g @base00 "$BASE00"
+set -g @base01 "$BASE01"
+set -g @base02 "$BASE02"
+set -g @base03 "$BASE03"
+
+set -g @accent  "$ACCENT"
+set -g @accent2 "$ACCENT2"
+set -g @accent3 "$ACCENT3"
+
+set -g @red     "$RED"
+set -g @green   "$GREEN"
+set -g @yellow  "$YELLOW"
 EOF
 
 echo "✔ Colors generated for Hyprland, Waybar, and Tmux."
